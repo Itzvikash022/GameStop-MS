@@ -71,6 +71,20 @@
     <Content Include="Bootstrap\js\bootstrap.min.js" />
     <Content Include="Bootstrap\js\jquery-3.3.1.slim.min.js" />
     <Content Include="Bootstrap\js\popper.min.js" />
+    <Content Include="clg_project1\css\style.css" />
+    <Content Include="clg_project1\html\index.html" />
+    <Content Include="clg_project1\images\eight.jpeg" />
+    <Content Include="clg_project1\images\fifth.jpeg" />
+    <Content Include="clg_project1\images\first_img.jpeg" />
+    <Content Include="clg_project1\images\fourth_image.jpeg" />
+    <Content Include="clg_project1\images\second_image.jpeg" />
+    <Content Include="clg_project1\images\seventh.jpeg" />
+    <Content Include="clg_project1\images\shop_all.jpeg" />
+    <Content Include="clg_project1\images\sixth.jpeg" />
+    <Content Include="clg_project1\images\third_image.jpeg" />
+    <Content Include="clg_project1\images\third_image1.jpeg" />
+    <Content Include="clg_project1\svg\logo.svg" />
+    <Content Include="clg_project1\svg\search.svg" />
     <Content Include="FontAwesome\css\all.css" />
     <Content Include="FontAwesome\css\all.min.css" />
     <Content Include="FontAwesome\css\brands.css" />
@@ -2147,6 +2161,7 @@
     <Content Include="adminGames.aspx" />
     <Content Include="adminProfile.aspx" />
     <Content Include="GameInsert.aspx" />
+    <Content Include="LandingPage.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -2177,6 +2192,13 @@
     </Compile>
     <Compile Include="GameInsert.aspx.designer.cs">
       <DependentUpon>GameInsert.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LandingPage.aspx.cs">
+      <DependentUpon>LandingPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LandingPage.aspx.designer.cs">
+      <DependentUpon>LandingPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
