@@ -68,12 +68,44 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
+    <Content Include="adminGames.aspx" />
+    <Content Include="adminProfile.aspx" />
+    <Content Include="GameInsert.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GameStop.Master.cs">
+      <DependentUpon>GameStop.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GameStop.Master.designer.cs">
+      <DependentUpon>GameStop.Master</DependentUpon>
+    </Compile>
+    <Compile Include="adminGames.aspx.cs">
+      <DependentUpon>adminGames.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminGames.aspx.designer.cs">
+      <DependentUpon>adminGames.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adminProfile.aspx.cs">
+      <DependentUpon>adminProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminProfile.aspx.designer.cs">
+      <DependentUpon>adminProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GameInsert.aspx.cs">
+      <DependentUpon>GameInsert.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GameInsert.aspx.designer.cs">
+      <DependentUpon>GameInsert.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="GameStop.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,22 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="GameStop.Master.cs" Inherits="GameStop_MS.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    Navbar can be here!!
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            Navbar can be here too!!!
+            <asp:ContentPlaceHolder ID="MasterContentHolder" runat="server">
+            </asp:ContentPlaceHolder>
+            Footer content here!!!
+        </div>
+    </form>
+</body>
+</html>
