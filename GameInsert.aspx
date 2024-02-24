@@ -20,7 +20,7 @@
             </td>
             <td>
                 <asp:TextBox ID="txtGameName" runat="server" ToolTip="Game Name">Enter Game Name</asp:TextBox>
-            </td>
+            &nbsp;</td>
         </tr>
         <tr>
             <td class="auto-style2">
