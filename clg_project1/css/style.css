@@ -5,13 +5,15 @@
 }
 
 body {
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
 }
 
-.header{
+.header {
     position: sticky;
-    top : 0px;
+    top: 0px;
+    width: 100%;
+    z-index: 10;
 }
 .logo{
     cursor: pointer;

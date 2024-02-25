@@ -1,34 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data;
-using System.Data.SqlClient;
-using System.Configuration;
-using System.Web.Caching;
 
 namespace GameStop_MS
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class WebForm5 : System.Web.UI.Page
     {
-        SqlConnection conn = null;
-        SqlCommand cmd = null;
-        SqlDataAdapter sda = null;
+        SqlCommand cmd;
+        SqlDataAdapter sda;
+        SqlConnection conn;
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-        }
 
-        public void fnConnect()
+        }
+        public void fnConnectDb()
         {
             try
             {
                 string conStr = ConfigurationManager.ConnectionStrings["myConStr"].ConnectionString;
                 conn = new SqlConnection(conStr);
 
-                if(conn.State != ConnectionState.Open)
+                if (conn.State != ConnectionState.Open)
                 {
                     conn.Open();
                     //Response.Write("Connected");
@@ -42,6 +40,24 @@ namespace GameStop_MS
             {
                 Response.Write(ex.ToString());
             }
+        }
+
+        protected void fnLogin()
+        {
+            try
+            {
+                fnConnectDb();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
