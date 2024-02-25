@@ -1,32 +1,28 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GameStop.Master" AutoEventWireup="true" CodeBehind="adminGames.aspx.cs" Inherits="GameStop_MS.WebForm1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GameStop.Master" AutoEventWireup="true" CodeBehind="adminSearch.aspx.cs" Inherits="GameStop_MS.WebForm7" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style type="text/css">
-        .auto-style1 {
-            color: #6699FF;
-        }
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MasterContentHolder" runat="server">
-<div class="container">
+    <div class="container">
     <div class="row">
         <div class="col-sm-12">
             <center>
-                <h4>All Available Games</h4>
+                <h4>Search Games Here</h4>
             </center>
          <div class="row">
             <div class="card">
-                <div style="margin-top: 10px;">
-                    <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
-                    <asp:Button ID="btnInsert" runat="server" class="btn btn-primary" style="margin-right: 22px; float: right;" Text="Add New Game" OnClick="btnInsert_Click" />
-                    <asp:Button ID="btnSearch" runat="server" class="btn btn-secondary" style="margin-right: 22px; float: right;" Text="Search" OnClick="btnSearch_Click" />
-
-                </div>
+                 <div style="margin-top: 10px;">
+                     <asp:TextBox ID="txtSearch" runat="server" style="margin-left:22px; float: left;"></asp:TextBox>
+                     <asp:Button ID="btnSearch" runat="server" Text="Search" class="btn btn-sm"/>
+                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <asp:SqlDataSource ID="allGames" runat="server" ConnectionString="Data Source=VIKASH\SQLEXPRESS02;Initial Catalog=dbGameStop;Integrated Security=True; TrustServerCertificate=True;" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [tblGames]">
+                        <asp:SqlDataSource ID="allGames" runat="server" ConnectionString="Data Source=VIKASH\SQLEXPRESS02;Initial Catalog=dbGameStop;Integrated Security=True; TrustServerCertificate=True;" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [tblGames] WHERE ([GameName] LIKE '%' + @SearchTerm + '%' OR @SearchTerm = '')">
+                         <SelectParameters>
+                            <asp:ControlParameter ControlID="txtSearch" Name="SearchTerm" PropertyName="Text" DefaultValue="" />
+                        </SelectParameters>
                         </asp:SqlDataSource>
                         <div class="col">
-                            <asp:GridView class="table table-striped table-bordered" ID="gdGamesList" runat="server" AutoGenerateColumns="False" DataKeyNames="GameId" OnRowCommand="gdGamesList_RowCommand" DataSourceID="allGames">
+                            <asp:GridView class="table table-striped table-bordered" ID="gdGamesList" runat="server" OnRowCommand="gdGamesList_RowCommand" AutoGenerateColumns="False" DataKeyNames="GameId" DataSourceID="allGames">
                                 <Columns>
                                     <asp:BoundField DataField="GameId" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="GameId" />
                                         <asp:TemplateField HeaderText="Games">
@@ -67,7 +63,7 @@
                                                                 <div class="col-lg-12">
                                                                     Description :-
                                                                     <strong>
-                                                                    <asp:Label ID="lblDescription" runat="server" Text='<%# Eval("Description") %>' CssClass="auto-style1" Font-Size="Smaller"></asp:Label>
+                                                                    <asp:Label ID="lblDescription" runat="server" Text='<%# Eval("Description") %>' CssClass="auto-style1" Font-Size="Smaller" style="color: #0099FF"></asp:Label>
                                                                     </strong>
                                                                 </div>
                                                                 <div class="col-lg-12">
@@ -89,6 +85,9 @@
                                         </asp:TemplateField>
                                     </Columns>
                                 </asp:GridView>
+                     <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
+                            <br />
+                                <asp:LinkButton ID="LinkBack" runat="server" PostBackUrl="~/adminGames.aspx">Go Back</asp:LinkButton>
                             </div>
                          </div>
                       </div>

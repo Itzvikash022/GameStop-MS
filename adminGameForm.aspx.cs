@@ -154,6 +154,18 @@ namespace GameStop_MS
             fnInsert();
         }
 
+        protected void btnReset_Click(object sender, EventArgs e)
+        {
+            txtDescription.Text = string.Empty;
+            txtQty.Text = string.Empty;
+            txtPrice.Text = string.Empty;
+            txtVersion.Text = string.Empty;
+            txtReleaseDate.Text = string.Empty;
+            txtPublisher.Text = string.Empty;
+            ddlGenre.ClearSelection();
+            txtGameName.Text = string.Empty;
+        }
+
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
             fnUpdate();

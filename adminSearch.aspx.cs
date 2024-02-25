@@ -1,24 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data;
-using System.Data.SqlClient;
-using System.Configuration;
-using System.Web.Caching;
 
 namespace GameStop_MS
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class WebForm7 : System.Web.UI.Page
     {
         SqlConnection conn = null;
         SqlCommand cmd = null;
         public static int gameId;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //gdGamesList.DataBind();
+
         }
 
         public void fnConnect()
@@ -28,7 +27,7 @@ namespace GameStop_MS
                 string conStr = ConfigurationManager.ConnectionStrings["myConStr"].ConnectionString;
                 conn = new SqlConnection(conStr);
 
-                if(conn.State != ConnectionState.Open)
+                if (conn.State != ConnectionState.Open)
                 {
                     conn.Open();
                     //Response.Write("Connected");
@@ -43,6 +42,10 @@ namespace GameStop_MS
                 Response.Write(ex.ToString());
             }
         }
+        protected void btnInsert_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/adminGameForm.aspx");
+        }
         protected void gdGamesList_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "SelectRow")
@@ -52,13 +55,12 @@ namespace GameStop_MS
                 Response.Redirect("~/adminGameForm.aspx");
             }
 
-            if(e.CommandName == "DeleteRow")
+            if (e.CommandName == "DeleteRow")
             {
                 gameId = Convert.ToInt32(e.CommandArgument);
                 fnDelete();
             }
         }
-
         protected void fnDelete()
         {
             try
@@ -66,10 +68,10 @@ namespace GameStop_MS
                 fnConnect();
                 string qry = "DELETE FROM tblGames WHERE GameId = @gameId";
 
-                cmd = new SqlCommand(qry,conn);
+                cmd = new SqlCommand(qry, conn);
                 cmd.Parameters.AddWithValue("gameId", gameId);
                 int res = cmd.ExecuteNonQuery();
-                if(res>0) 
+                if (res > 0)
                 {
                     lblStatus.Text = "Game Data Deleted";
                 }
@@ -82,18 +84,8 @@ namespace GameStop_MS
             }
             catch (Exception ex)
             {
-                lblStatus.Text= ex.ToString();
+                lblStatus.Text = ex.ToString();
             }
-        }
-
-        protected void btnInsert_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/adminGameForm.aspx");
-        }
-
-        protected void btnSearch_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/adminSearch.aspx");
         }
     }
 }

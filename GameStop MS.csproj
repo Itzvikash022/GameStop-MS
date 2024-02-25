@@ -2164,6 +2164,7 @@
     <Content Include="LandingPage.aspx" />
     <Content Include="adminLogin.aspx" />
     <Content Include="adminGameForm.aspx" />
+    <Content Include="adminSearch.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -2215,6 +2216,13 @@
     </Compile>
     <Compile Include="adminGameForm.aspx.designer.cs">
       <DependentUpon>adminGameForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adminSearch.aspx.cs">
+      <DependentUpon>adminSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminSearch.aspx.designer.cs">
+      <DependentUpon>adminSearch.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
