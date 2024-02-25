@@ -15,10 +15,10 @@ namespace GameStop_MS
     {
         SqlConnection conn = null;
         SqlCommand cmd = null;
-        SqlDataAdapter sda = null;
+        public static int gameId;
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            //gdGamesList.DataBind();
         }
 
         public void fnConnect()
@@ -43,5 +43,53 @@ namespace GameStop_MS
                 Response.Write(ex.ToString());
             }
         }
+        protected void gdGamesList_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "SelectRow")
+            {
+                int gameId = Convert.ToInt32(e.CommandArgument);
+                Session["gameId"] = gameId;
+                Response.Redirect("~/adminGameForm.aspx");
+            }
+
+            if(e.CommandName == "DeleteRow")
+            {
+                gameId = Convert.ToInt32(e.CommandArgument);
+                fnDelete();
+            }
+        }
+
+        protected void fnDelete()
+        {
+            try
+            {
+                fnConnect();
+                string qry = "DELETE FROM tblGames WHERE GameId = @gameId";
+
+                cmd = new SqlCommand(qry,conn);
+                cmd.Parameters.AddWithValue("gameId", gameId);
+                int res = cmd.ExecuteNonQuery();
+                if(res>0) 
+                {
+                    lblStatus.Text = "Game Data Deleted";
+                }
+                else
+                {
+                    lblStatus.Text = "Game Data failed to Delete";
+                }
+                gdGamesList.DataBind();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                lblStatus.Text= ex.ToString();
+            }
+        }
+
+        protected void btnInsert_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/adminGameForm.aspx");
+        }
+
     }
 }

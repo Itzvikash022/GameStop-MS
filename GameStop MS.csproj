@@ -2163,6 +2163,7 @@
     <Content Include="GameInsert.aspx" />
     <Content Include="LandingPage.aspx" />
     <Content Include="adminLogin.aspx" />
+    <Content Include="adminGameForm.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -2207,6 +2208,13 @@
     </Compile>
     <Compile Include="adminLogin.aspx.designer.cs">
       <DependentUpon>adminLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adminGameForm.aspx.cs">
+      <DependentUpon>adminGameForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminGameForm.aspx.designer.cs">
+      <DependentUpon>adminGameForm.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
