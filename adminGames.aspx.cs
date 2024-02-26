@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Web.Caching;
+using System.Security.Cryptography;
 
 namespace GameStop_MS
 {
@@ -15,9 +16,14 @@ namespace GameStop_MS
     {
         SqlConnection conn = null;
         SqlCommand cmd = null;
+        SqlDataAdapter sda = null;
         public static int gameId;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(!Page.IsPostBack)
+            {
+                fnBindGrid();
+            }
             //gdGamesList.DataBind();
         }
 
@@ -42,6 +48,28 @@ namespace GameStop_MS
             {
                 Response.Write(ex.ToString());
             }
+        }
+
+        protected void fnBindGrid()
+        {
+            try
+            {
+                fnConnect();
+                string qry = "SELECT * FROM tblGames";
+                cmd = new SqlCommand(qry, conn);
+                sda = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+                gdGamesList.DataSource = ds;
+                gdGamesList.DataBind();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                lblStatus.Text = ex.ToString();
+
+            }
+
         }
         protected void gdGamesList_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -78,11 +106,35 @@ namespace GameStop_MS
                     lblStatus.Text = "Game Data failed to Delete";
                 }
                 gdGamesList.DataBind();
+                fnBindGrid();
                 conn.Close();
             }
             catch (Exception ex)
             {
                 lblStatus.Text= ex.ToString();
+            }
+        }
+
+        protected void fnSearch()
+        {
+            try
+            {
+                fnConnect();
+                string game = txtSearch.Text.Trim();
+                string qry = "SELECT * FROM tblGames WHERE GameName LIKE '%' + @game + '%'";
+                cmd = new SqlCommand(qry, conn);
+                cmd.Parameters.AddWithValue("game",game);
+                sda = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+                gdGamesList.DataSource = ds;
+                gdGamesList.DataBind();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                lblStatus.Text = ex.ToString();
+
             }
         }
 
@@ -93,7 +145,7 @@ namespace GameStop_MS
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/adminSearch.aspx");
+            fnSearch();
         }
     }
 }

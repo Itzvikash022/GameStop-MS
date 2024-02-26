@@ -4,6 +4,7 @@
         .auto-style1 {
             color: #6699FF;
         }
+        
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MasterContentHolder" runat="server">
@@ -16,17 +17,17 @@
          <div class="row">
             <div class="card">
                 <div style="margin-top: 10px;">
-                    <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
                     <asp:Button ID="btnInsert" runat="server" class="btn btn-primary" style="margin-right: 22px; float: right;" Text="Add New Game" OnClick="btnInsert_Click" />
-                    <asp:Button ID="btnSearch" runat="server" class="btn btn-secondary" style="margin-right: 22px; float: right;" Text="Search" OnClick="btnSearch_Click" />
+                    <asp:Button ID="btnSearch" runat="server" class="btn btn-secondary" style="margin-left: 22px; padding: 2px 10px; float: left;" Text="Search" OnClick="btnSearch_Click" />
+
+                    <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
+                    <asp:TextBox ID="txtSearch" runat="server" style="margin-left: 5px; float: left; width: auto; padding: 2px 10px; font-size: 14px;" AccessKey="s" ToolTip="Search"></asp:TextBox>
 
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <asp:SqlDataSource ID="allGames" runat="server" ConnectionString="Data Source=VIKASH\SQLEXPRESS02;Initial Catalog=dbGameStop;Integrated Security=True; TrustServerCertificate=True;" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [tblGames]">
-                        </asp:SqlDataSource>
                         <div class="col">
-                            <asp:GridView class="table table-striped table-bordered" ID="gdGamesList" runat="server" AutoGenerateColumns="False" DataKeyNames="GameId" OnRowCommand="gdGamesList_RowCommand" DataSourceID="allGames">
+                            <asp:GridView class="table table-striped table-bordered" ID="gdGamesList" runat="server" AutoGenerateColumns="False" DataKeyNames="GameId" OnRowCommand="gdGamesList_RowCommand">
                                 <Columns>
                                     <asp:BoundField DataField="GameId" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="GameId" />
                                         <asp:TemplateField HeaderText="Games">
