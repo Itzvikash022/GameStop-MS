@@ -86,6 +86,11 @@ namespace GameStop_MS
                 fnDelete();
             }
         }
+        
+        protected void test()
+        {
+
+        }
 
         protected void fnDelete()
         {
