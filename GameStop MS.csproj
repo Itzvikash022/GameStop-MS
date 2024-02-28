@@ -2157,6 +2157,7 @@
     <Content Include="FontAwesome\svgs\solid\yen-sign.svg" />
     <Content Include="FontAwesome\svgs\solid\yin-yang.svg" />
     <Content Include="FontAwesome\svgs\solid\z.svg" />
+    <Content Include="test_git.aspx" />
     <Content Include="Web.config" />
     <Content Include="adminGames.aspx" />
     <Content Include="adminProfile.aspx" />
@@ -2215,6 +2216,13 @@
     </Compile>
     <Compile Include="adminGameForm.aspx.designer.cs">
       <DependentUpon>adminGameForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test_git.aspx.cs">
+      <DependentUpon>test_git.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test_git.aspx.designer.cs">
+      <DependentUpon>test_git.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
