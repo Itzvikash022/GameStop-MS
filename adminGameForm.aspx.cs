@@ -64,7 +64,7 @@ namespace GameStop_MS
             {
                 txtGameName.Text = dr["GameName"].ToString();
                 txtPublisher.Text = dr["Publisher"].ToString();
-                txtReleaseDate.Text = dr["ReleaseDate"].ToString();
+             //   txtReleaseDate.Text = dr["ReleaseDate"].ToString();
                 ddlGenre.SelectedValue = dr["Genre"].ToString();
                 txtVersion.Text = dr["Version"].ToString();
                 txtPrice.Text = dr["Price"].ToString();
@@ -91,7 +91,7 @@ namespace GameStop_MS
                 cmd.Parameters.AddWithValue("url", img);
                 cmd.Parameters.AddWithValue("date", DateTime.Now.ToString("MM-dd-yyyy"));
                 cmd.Parameters.AddWithValue("ver", txtVersion.Text);
-                cmd.Parameters.AddWithValue("release", txtReleaseDate.Text);
+             //   cmd.Parameters.AddWithValue("release", txtReleaseDate.Text);
                 cmd.Parameters.AddWithValue("pub", txtPublisher.Text);
 
                 int res = cmd.ExecuteNonQuery();
@@ -127,7 +127,7 @@ namespace GameStop_MS
                 cmd.Parameters.AddWithValue("qty", txtQty.Text);
                 cmd.Parameters.AddWithValue("price", txtPrice.Text);
                 cmd.Parameters.AddWithValue("ver", txtVersion.Text);
-                cmd.Parameters.AddWithValue("release", txtReleaseDate.Text);
+               // cmd.Parameters.AddWithValue("release", txtReleaseDate.Text);
                 cmd.Parameters.AddWithValue("pub", txtPublisher.Text);
                 cmd.Parameters.AddWithValue("game_id", Session["gameId"]);
 
@@ -160,7 +160,7 @@ namespace GameStop_MS
             txtQty.Text = string.Empty;
             txtPrice.Text = string.Empty;
             txtVersion.Text = string.Empty;
-            txtReleaseDate.Text = string.Empty;
+           // txtReleaseDate.Text = string.Empty;
             txtPublisher.Text = string.Empty;
             ddlGenre.ClearSelection();
             txtGameName.Text = string.Empty;
