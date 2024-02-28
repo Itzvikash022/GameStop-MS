@@ -2157,6 +2157,7 @@
     <Content Include="FontAwesome\svgs\solid\yen-sign.svg" />
     <Content Include="FontAwesome\svgs\solid\yin-yang.svg" />
     <Content Include="FontAwesome\svgs\solid\z.svg" />
+    <Content Include="test.aspx" />
     <Content Include="Web.config" />
     <Content Include="adminGames.aspx" />
     <Content Include="adminProfile.aspx" />
@@ -2164,6 +2165,7 @@
     <Content Include="LandingPage.aspx" />
     <Content Include="adminLogin.aspx" />
     <Content Include="adminGameForm.aspx" />
+    <Content Include="WebForm7.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -2215,6 +2217,20 @@
     </Compile>
     <Compile Include="adminGameForm.aspx.designer.cs">
       <DependentUpon>adminGameForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm7.aspx.cs">
+      <DependentUpon>WebForm7.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm7.aspx.designer.cs">
+      <DependentUpon>WebForm7.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
