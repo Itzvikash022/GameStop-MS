@@ -89,7 +89,15 @@ namespace GameStop_MS
         
         protected void test()
         {
+            try
+            {
+                Response.Write("test");
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
         }
 
         protected void fnDelete()
