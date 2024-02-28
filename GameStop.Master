@@ -18,16 +18,12 @@
             <header>
                 <nav>
                     <li class="logo">
-                        <a href="welcome.html"><img src="clg_project1/svg/logo.svg"></a>
+                        <a href="LandingPage.aspx"><img src="clg_project1/svg/logo.svg"></a>
                     </li>
-                    <li class="search">
-                        <input id="searchInput" type="text" placeholder="Search">
-                    </li>
-
                     <div class="right">
                         <ul>
                             <li class="n"><a href="welcome.html">Home</a></li>
-                            <li class="n"><a href="welcome.html">Porduct</a></li>
+                            <li class="n"><a href="/adminGames.aspx">Games</a></li>
                             <li class="n"><a href="welcome.html">About Us</a></li>
                             <li class="n"><a href="welcome.html">Login</a></li>
                             <li class="n"><a href="welcome.html">Register</a></li>
