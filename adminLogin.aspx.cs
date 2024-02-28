@@ -49,15 +49,37 @@ namespace GameStop_MS
                 fnConnectDb();
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                Response.Write(ex.ToString());
             }
         }
         protected void btnLogin_Click(object sender, EventArgs e)
         {
+            try
+            {
+                fnConnectDb();
+                string qry = "SELECT COUNT(*) FROM adminProfile WHERE id = @id AND password = @pass";
+                cmd = new SqlCommand(qry , conn);
+                cmd.Parameters.AddWithValue("id" , txtAdminID.Text);
+                cmd.Parameters.AddWithValue("pass" , txtAdminPass.Text);
+                int res = (int)cmd.ExecuteScalar();
 
+                if(res>0)
+                {
+                    Session["id"] = txtAdminID.Text;
+                    Response.Redirect("~/adminprofile.aspx");
+                }
+                else
+                {
+                    Response.Write("Not Valid");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.ToString());
+            }
         }
     }
 }

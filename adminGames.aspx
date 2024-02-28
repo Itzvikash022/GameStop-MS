@@ -18,7 +18,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <asp:SqlDataSource ID="allGames" runat="server" ConnectionString="Data Source=VIKASH\SQLEXPRESS02;Initial Catalog=dbGameStop;Integrated Security=True; TrustServerCertificate=True;" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [tblGames]"></asp:SqlDataSource>
+                        <asp:SqlDataSource ID="allGames" runat="server" ConnectionString="Data Source=LAPTOP-1643FI6O\SQLEXPRESS;Initial Catalog=dbGameStop;Integrated Security=True;Encrypt=False" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [tblGames]"></asp:SqlDataSource>
                         <div class="col">
                             <asp:GridView class="table table-striped table-bordered" ID="gdGamesList" runat="server" AutoGenerateColumns="False" DataKeyNames="GameId" DataSourceID="allGames">
                                 <Columns>
