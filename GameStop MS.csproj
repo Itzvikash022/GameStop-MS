@@ -2157,7 +2157,6 @@
     <Content Include="FontAwesome\svgs\solid\yen-sign.svg" />
     <Content Include="FontAwesome\svgs\solid\yin-yang.svg" />
     <Content Include="FontAwesome\svgs\solid\z.svg" />
-    <Content Include="test.aspx" />
     <Content Include="Web.config" />
     <Content Include="adminGames.aspx" />
     <Content Include="adminProfile.aspx" />
@@ -2165,7 +2164,6 @@
     <Content Include="LandingPage.aspx" />
     <Content Include="adminLogin.aspx" />
     <Content Include="adminGameForm.aspx" />
-    <Content Include="WebForm7.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />

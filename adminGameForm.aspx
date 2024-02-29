@@ -5,10 +5,6 @@
             color: red;
             font-size: small;
         }
-        .auto-style2 {
-            font-size: 12pt;
-            color: #495057;
-        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MasterContentHolder" runat="server">
@@ -60,7 +56,8 @@
                      <div class="col-md-6">
                         <label>Release Date</label>
                         <div class="form-group">
-                            <span class="auto-style2">x`</span><asp:RequiredFieldValidator ID="rfvReleaseDate" runat="server" ControlToValidate="txtReleaseDate" CssClass="auto-style1" ErrorMessage="**Select Game Release Date" ValidationGroup="gpValidate"></asp:RequiredFieldValidator>
+                           <asp:TextBox CssClass="form-control" ID="txtReleaseDate" runat="server" placeholder="Date" TextMode="Date" ToolTip="Release Date"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfvReleaseDate" runat="server" ControlToValidate="txtReleaseDate" CssClass="auto-style1" ErrorMessage="**Select Game Release Date" ValidationGroup="gpValidate"></asp:RequiredFieldValidator>
                         </div>
                      </div>
                      <div class="col-md-6">
