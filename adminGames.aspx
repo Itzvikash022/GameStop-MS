@@ -17,7 +17,7 @@
          <div class="row">
             <div class="card">
                 <div style="margin-top: 10px;">
-                    <asp:Button ID="btnInsert" runat="server" class="btn btn-primary" style="margin-right: 22px; float: right;" Text="Add New Game" OnClick="btnInsert_Click" />
+                    <asp:Button ID="btnInsert" runat="server" class="btn btn-primary col-2" style="margin-right: 22px; float: right;" Text="Add New Game" OnClick="btnInsert_Click" />
                     <asp:Button ID="btnSearch" runat="server" class="btn btn-secondary" style="margin-left: 22px; padding: 2px 10px; float: left;" Text="Search" OnClick="btnSearch_Click" />
 
                     <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>

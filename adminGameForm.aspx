@@ -112,13 +112,13 @@
                      </div>
                   </div>
                   <div class="row">
-                     <div class="col-4">
+                     <div class="d-grid gap-2 col-4 mx-auto">
                         <asp:Button ID="btnInsert" class="btn btn-lg btn-block btn-success" runat="server" Text="Add" OnClick="btnInsert_Click" ValidationGroup="gpValidate"/>
                      </div>
-                     <div class="col-4">
+                     <div class="d-grid gap-2 col-4 mx-auto">
                         <asp:Button ID="btnUpdate" class="btn btn-lg btn-block btn-warning" runat="server" Text="Update" OnClick="btnUpdate_Click" ValidationGroup="gpValidate"/>
                      </div>
-                      <div class="col-4">
+                      <div class="d-grid gap-2 col-4 mx-auto">
                        <asp:Button ID="btnReset" class="btn btn-lg btn-block btn-dark" runat="server" Text="Reset" OnClick="btnReset_Click"/>
                     </div>
                   </div>
