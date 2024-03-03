@@ -59,7 +59,7 @@ namespace GameStop_MS
             try
             {
                 fnConnectDb();
-                string qry = "SELECT COUNT(*) FROM tblAdminProfile WHERE adminID= @id AND adminPassword = @pass";
+                string qry = "SELECT COUNT(*) FROM adminProfile WHERE id = @id AND password = @pass";
                 cmd = new SqlCommand(qry , conn);
                 cmd.Parameters.AddWithValue("id" , txtAdminID.Text);
                 cmd.Parameters.AddWithValue("pass" , txtAdminPass.Text);
@@ -67,18 +67,18 @@ namespace GameStop_MS
 
                 if(res>0)
                 {
-                    Session["adminID"] = txtAdminID.Text;
-                    Response.Redirect("~/adminGames.aspx");
+                    Session["id"] = txtAdminID.Text;
+                    Response.Redirect("~/adminprofile.aspx");
                 }
                 else
                 {
-                    lblStatus.Text = "Invalid Admin ID or Password";
+                    Response.Write("Not Valid");
                 }
 
             }
             catch (Exception ex)
             {
-                lblStatus.Text = ex.ToString();
+                Response.Write(ex.ToString());
             }
         }
     }

@@ -17,18 +17,7 @@ namespace GameStop_MS
         SqlDataAdapter sda = null;
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*if (Session["adminID"] != null)
-            {
-                if (!Page.IsPostBack)
-                {
-                    
-                }
-            }
-            else
-            {
-                Response.Redirect("~/adminLogin.aspx");
-            }*/
-            if (!Page.IsPostBack)
+            if(!Page.IsPostBack)
             {
                 if (Session["gameId"] != null)
                 {

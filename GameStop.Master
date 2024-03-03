@@ -5,74 +5,38 @@
 <html>
 <head runat="server">
     <title></title>
-    <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <script src="Bootstrap/js/bootstrap.bundle.min.js"></script>
-    <link href="Bootstrap/css/style.css" rel="stylesheet" />
+    <link href="Bootstrap\bootstrap.min.css" rel="stylesheet" />
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    
-    <style type="text/css">
-        
-    </style>
+    <link href="clg_project1/css/style.css" rel="stylesheet" />
+
 </head>
 <body>
     <form id="form1" runat="server">
         <div class="header">
             <header>
-                <nav class="navbar navbar-expand-lg fixed-top">
-                    <div class="container-fluid">
-                        <a class="navbar-brand me-auto" href="#">GameStop</a>
-
-                        <div
-                            class="offcanvas offcanvas-end"
-                            tabindex="-1"
-                            id="offcanvasNavbar"
-                            aria-labelledby="offcanvasNavbarLabel">
-                            <div class="offcanvas-header">
-                                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">GameStop</h5>
-                                <button
-                                    type="button"
-                                    class="btn-close"
-                                    data-bs-dismiss="offcanvas"
-                                    aria-label="Close">
-                                </button>
-                            </div>
-                            <div class="offcanvas-body">
-                                <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
-                                    <li class="nav-item">
-                                        <a class="nav-link mx-lg-2 active" aria-current="page" href="#">Home</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link mx-lg-2" href="#">About</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link mx-lg-2" href="#">Contact</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link mx-lg-2" href="adminCustomerList.aspx">Customer List</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link mx-lg-2" href="#">haha</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <a href="adminLogin.aspx" class="login-button">Login</a>
-                        <button
-                            class="navbar-toggler pe-0"
-                            type="button"
-                            data-bs-toggle="offcanvas"
-                            data-bs-target="#offcanvasNavbar"
-                            aria-controls="offcanvasNavbar"
-                            aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
+                <nav>
+                    <li class="logo">
+                        <a href="LandingPage.aspx"><img src="clg_project1/svg/logo.svg"></a>
+                    </li>
+                    <div class="right">
+                        <ul>
+                            <li class="n"><a href="welcome.html">Home</a></li>
+                            <li class="n"><a href="/adminGames.aspx">Games</a></li>
+                            <li class="n"><a href="welcome.html">About Us</a></li>
+                            <li class="n"><a href="welcome.html">Login</a></li>
+                            <li class="n"><a href="welcome.html">Register</a></li>
+                        </ul>
                     </div>
                 </nav>
             </header>
         </div>
-        <asp:ContentPlaceHolder ID="MasterContentHolder" runat="server">
-        </asp:ContentPlaceHolder>
+        
+            <asp:ContentPlaceHolder ID="MasterContentHolder" runat="server">
+            </asp:ContentPlaceHolder>
+       
+
     </form>
 </body>
 </html>

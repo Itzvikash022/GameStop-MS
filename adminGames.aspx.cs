@@ -20,22 +20,11 @@ namespace GameStop_MS
         public static int gameId;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["adminID"] != null)
-            {
-                if (!Page.IsPostBack)
-                {
-                    fnBindGrid();
-                }
-            }
-            else
-            {
-                Response.Redirect("~/adminLogin.aspx");
-            }
-
-           /* if (!Page.IsPostBack)
+            if(!Page.IsPostBack)
             {
                 fnBindGrid();
-            }*/
+            }
+            //gdGamesList.DataBind();
         }
 
         public void fnConnect()
@@ -52,7 +41,7 @@ namespace GameStop_MS
                 }
                 else
                 {
-                    lblStatus.Text = "Connection Failed";
+                    Response.Write("Connection Failed");
                 }
             }
             catch (Exception ex)
@@ -158,12 +147,6 @@ namespace GameStop_MS
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             fnSearch();
-        }
-
-        protected void gdGamesList_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            gdGamesList.PageIndex = e.NewPageIndex;
-            fnBindGrid();
         }
     }
 }

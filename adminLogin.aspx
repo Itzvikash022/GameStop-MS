@@ -12,7 +12,7 @@
      <div class="container">
       <div class="row">
          <div class="col-md-6 mx-auto">
-            <div class="card game-card">
+            <div class="card">
                <div class="card-body">
                   <div class="row">
                      <div class="col">
@@ -47,8 +47,6 @@
                         </div>
                         <div class="form-group">
                            <asp:Button class="btn btn-info btn-block btn-lg" ID="btnLogin" runat="server" Text="Login" ToolTip="Login Button" OnClick="btnLogin_Click" ValidationGroup="gpAdminLogin" />
-                            <br />
-                            <asp:Label ID="lblStatus" runat="server"></asp:Label>
                         </div>
                      </div>
                   </div>
