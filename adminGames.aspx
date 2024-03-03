@@ -4,18 +4,18 @@
         .auto-style1 {
             color: #6699FF;
         }
-        
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MasterContentHolder" runat="server">
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            <center>
-                <h4>All Available Games</h4>
-            </center>
+            
          <div class="row">
-            <div class="card">
+            <div class="card game-card">
+                <center>
+                    <h4>GameList</h4>
+                </center>
                 <div style="margin-top: 10px;">
                     <asp:Button ID="btnInsert" runat="server" class="btn btn-primary col-2" style="margin-right: 22px; float: right;" Text="Add New Game" OnClick="btnInsert_Click" />
                     <asp:Button ID="btnSearch" runat="server" class="btn btn-secondary" style="margin-left: 22px; padding: 2px 10px; float: left;" Text="Search" OnClick="btnSearch_Click" />
@@ -27,7 +27,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
-                            <asp:GridView class="table table-striped table-bordered" ID="gdGamesList" runat="server" AutoGenerateColumns="False" DataKeyNames="GameId" OnRowCommand="gdGamesList_RowCommand">
+                            <asp:GridView class="table table-striped table-bordered" ID="gdGamesList" runat="server" AutoGenerateColumns="False"  OnRowCommand="gdGamesList_RowCommand" AllowPaging="True" PageSize="7" PagerSettings-Position="TopAndBottom" OnPageIndexChanging="gdGamesList_PageIndexChanging">
                                 <Columns>
                                     <asp:BoundField DataField="GameId" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="GameId" />
                                         <asp:TemplateField HeaderText="Games">
