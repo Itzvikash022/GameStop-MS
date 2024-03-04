@@ -52,7 +52,7 @@
                                         <a class="nav-link mx-lg-2" href="adminCustomerList.aspx">Customer List</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link mx-lg-2" href="#">haha</a>
+                                        <a class="nav-link mx-lg-2" href="adminGames.aspx">Game List</a>
                                     </li>
                                 </ul>
                             </div>

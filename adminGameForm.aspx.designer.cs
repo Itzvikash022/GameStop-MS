@@ -24,6 +24,15 @@ namespace GameStop_MS
         protected global::System.Web.UI.WebControls.FileUpload fileCoverImage;
 
         /// <summary>
+        /// fileDownloadable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fileDownloadable;
+
+        /// <summary>
         /// txtGameName control.
         /// </summary>
         /// <remarks>
@@ -123,31 +132,31 @@ namespace GameStop_MS
         protected global::System.Web.UI.WebControls.CompareValidator cvPrice;
 
         /// <summary>
-        /// txtQty control.
+        /// txtDownloads control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQty;
+        protected global::System.Web.UI.WebControls.TextBox txtDownloads;
 
         /// <summary>
-        /// rfvQty control.
+        /// rfvDownloads control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvQty;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDownloads;
 
         /// <summary>
-        /// cvQty control.
+        /// cvDownloads control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator cvQty;
+        protected global::System.Web.UI.WebControls.CompareValidator cvDownloads;
 
         /// <summary>
         /// txtDescription control.

@@ -33,9 +33,16 @@
                   </div>
                   <div class="row">
                      <div class="col">
+                         <label>Cover Image</label>
                         <asp:FileUpload class="form-control" ID="fileCoverImage" runat="server" AllowMultiple="false" ToolTip="Cover Image Upload"/>
                      </div>
                   </div>
+                   <div class="row">
+                       <div class="col">
+                           <label>Game File</label>
+                          <asp:FileUpload class="form-control" ID="fileDownloadable" runat="server" AllowMultiple="false" ToolTip="Downloadable file  Upload"/><br />
+                       </div>
+                    </div>
                   <div class="row">
                      <div class="col-md-7">
                         <label>Game Name</label>
@@ -94,11 +101,12 @@
                         </div>
                      </div>
                      <div class="col-md-4">
-                        <label>Quantity Available</label>
+                         Total Downloads
                         <div class="form-group">
-                           <asp:TextBox CssClass="form-control" ID="txtQty" runat="server" placeholder="Quantity" TextMode="Number" ToolTip="Available Quantity"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="rfvQty" runat="server" ControlToValidate="txtQty" CssClass="auto-style1" ErrorMessage="**Quantity cannot be empty" ValidationGroup="gpValidate"></asp:RequiredFieldValidator>
-                            <asp:CompareValidator ID="cvQty" runat="server" ControlToValidate="txtQty" CssClass="auto-style1" ErrorMessage="**Quantity must be positive" Operator="GreaterThan" ValidationGroup="gpValidate" ValueToCompare="0"></asp:CompareValidator>
+                           <asp:TextBox CssClass="form-control" ID="txtDownloads" runat="server" placeholder="Quantity" TextMode="Number" Text="0" ToolTip="Available Quantity"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfvDownloads" runat="server" ControlToValidate="txtDownloads" CssClass="auto-style1" ErrorMessage="**Downloads cannot be empty" ValidationGroup="gpValidate"></asp:RequiredFieldValidator>
+                            <br />
+                            <asp:CompareValidator ID="cvDownloads" runat="server" ControlToValidate="txtDownloads" CssClass="auto-style1" ErrorMessage="**Downloads must be positive" Operator="GreaterThanEqual" ValidationGroup="gpValidate" ValueToCompare="0"></asp:CompareValidator>
                         </div>
                      </div>
                   </div>
