@@ -18,22 +18,29 @@ namespace GameStop_MS
         SqlDataAdapter sda = null;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["gameId"] != null)
+            if (Session["adminId"] != null)
             {
                 if (!IsPostBack)
                 {
-                    fnDisplayCustomer();
                     if (Session["cid"] == null)
                     {
                         Response.Redirect("~/adminCustomerList.aspx");
                     }
-                    Button btnDelete = (Button)fvCustomer.FindControl("btnDelete");
-                    if (cbDeleteButton != null && btnDelete != null)
+                    else
                     {
-                        btnDelete.Enabled = cbDeleteButton.Checked;
+                        fnDisplayCustomer();
+                        Button btnDelete = (Button)fvCustomer.FindControl("btnDelete");
+                        if (cbDeleteButton != null && btnDelete != null)
+                        {
+                            btnDelete.Enabled = cbDeleteButton.Checked;
+                        }
                     }
                 }
-            } 
+            }
+            else
+            {
+                //Response.Redirect("~/adminLogin.aspx");
+            }
         }
 
         public void fnConnect()
