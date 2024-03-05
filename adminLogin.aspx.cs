@@ -13,7 +13,6 @@ namespace GameStop_MS
     public partial class WebForm5 : System.Web.UI.Page
     {
         SqlCommand cmd;
-        SqlDataAdapter sda;
         SqlConnection conn;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -49,15 +48,37 @@ namespace GameStop_MS
                 fnConnectDb();
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                Response.Write(ex.ToString());
             }
         }
         protected void btnLogin_Click(object sender, EventArgs e)
         {
+            try
+            {
+                fnConnectDb();
+                string qry = "SELECT COUNT(*) FROM tblAdminProfile WHERE adminID= @id AND adminPassword = @pass";
+                cmd = new SqlCommand(qry , conn);
+                cmd.Parameters.AddWithValue("id" , txtAdminID.Text);
+                cmd.Parameters.AddWithValue("pass" , txtAdminPass.Text);
+                int res = (int)cmd.ExecuteScalar();
 
+                if(res>0)
+                {
+                    Session["adminID"] = txtAdminID.Text;
+                    Response.Redirect("~/adminGames.aspx");
+                }
+                else
+                {
+                    lblStatus.Text = "Invalid Admin ID or Password";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                lblStatus.Text = ex.ToString();
+            }
         }
     }
 }

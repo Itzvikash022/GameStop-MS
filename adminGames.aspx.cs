@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Web.Caching;
 using System.Security.Cryptography;
+using System.IO;
 
 namespace GameStop_MS
 {
@@ -20,11 +21,17 @@ namespace GameStop_MS
         public static int gameId;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!Page.IsPostBack)
+            if (Session["adminID"] != null)
             {
-                fnBindGrid();
+                if (!Page.IsPostBack)
+                {
+                    fnBindGrid();
+                }
             }
-            //gdGamesList.DataBind();
+            else
+            {
+                Response.Redirect("~/adminLogin.aspx");
+            }
         }
 
         public void fnConnect()
@@ -41,7 +48,7 @@ namespace GameStop_MS
                 }
                 else
                 {
-                    Response.Write("Connection Failed");
+                    lblStatus.Text = "Connection Failed";
                 }
             }
             catch (Exception ex)
@@ -85,13 +92,48 @@ namespace GameStop_MS
                 gameId = Convert.ToInt32(e.CommandArgument);
                 fnDelete();
             }
+
+            if (e.CommandName == "DownloadFile")
+            {
+                gameId = Convert.ToInt32(e.CommandArgument);
+                fnDownload();
+            }
         }
-        
-        protected void test()
+
+        protected void fnDownload()
         {
+            try
+            {
+                fnConnect();
+                string qry = "SELECT DownloadPath FROM tblGames WHERE GameId = @gameId";
+                cmd = new SqlCommand(qry, conn);
+                cmd.Parameters.AddWithValue("gameId", gameId);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    string path = dr["DownloadPath"].ToString();
 
+                    if (!string.IsNullOrEmpty(path))
+                    {
+                        Response.ContentType = MimeMapping.GetMimeMapping(path); // Get content type dynamically
+                        Response.AppendHeader("Content-Disposition", "attachment; filename=" + Path.GetFileName(path)); // Set the file name
+                        Response.TransmitFile(path); // Transmit the file
+                        Response.End(); // End the response
+                    }
+                    else
+                    {
+                        lblStatus.Text = "File Not Found";
+                    }
+                }
+                conn.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+                lblStatus.Text = ex.ToString();
+            }
         }
-
         protected void fnDelete()
         {
             try
@@ -151,6 +193,12 @@ namespace GameStop_MS
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             fnSearch();
+        }
+
+        protected void gdGamesList_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gdGamesList.PageIndex = e.NewPageIndex;
+            fnBindGrid();
         }
     }
 }

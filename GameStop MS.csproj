@@ -68,7 +68,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Bootstrap\css\bootstrap.min.css" />
-    <Content Include="Bootstrap\js\bootstrap.min.js" />
+    <Content Include="Bootstrap\css\style.css" />
+    <Content Include="Bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="Bootstrap\js\jquery-3.3.1.slim.min.js" />
     <Content Include="Bootstrap\js\popper.min.js" />
     <Content Include="clg_project1\css\style.css" />
@@ -2160,10 +2161,11 @@
     <Content Include="Web.config" />
     <Content Include="adminGames.aspx" />
     <Content Include="adminProfile.aspx" />
-    <Content Include="GameInsert.aspx" />
     <Content Include="LandingPage.aspx" />
     <Content Include="adminLogin.aspx" />
     <Content Include="adminGameForm.aspx" />
+    <Content Include="adminCustomerList.aspx" />
+    <Content Include="adminCustomerProfile.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -2188,13 +2190,6 @@
     <Compile Include="adminProfile.aspx.designer.cs">
       <DependentUpon>adminProfile.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GameInsert.aspx.cs">
-      <DependentUpon>GameInsert.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="GameInsert.aspx.designer.cs">
-      <DependentUpon>GameInsert.aspx</DependentUpon>
-    </Compile>
     <Compile Include="LandingPage.aspx.cs">
       <DependentUpon>LandingPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2215,6 +2210,20 @@
     </Compile>
     <Compile Include="adminGameForm.aspx.designer.cs">
       <DependentUpon>adminGameForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adminCustomerList.aspx.cs">
+      <DependentUpon>adminCustomerList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminCustomerList.aspx.designer.cs">
+      <DependentUpon>adminCustomerList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adminCustomerProfile.aspx.cs">
+      <DependentUpon>adminCustomerProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminCustomerProfile.aspx.designer.cs">
+      <DependentUpon>adminCustomerProfile.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -2282,6 +2291,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="GameFiles\" />
     <Folder Include="Imgs\" />
     <Folder Include="Uploads\" />
   </ItemGroup>
