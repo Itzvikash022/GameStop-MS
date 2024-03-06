@@ -7,7 +7,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MasterContentHolder" runat="server">
-<div class="container">
+    <div class="container">
     <div class="row">
         <div class="col-sm-12">
             
@@ -62,8 +62,8 @@
                                                                 <div class="col-lg-12">
                                                                     </strong>Price :- <strong>
                                                                     <asp:Label ID="lblPrice" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
-                                                                    Rupees</strong> || Stock Available:- <strong>
-                                                                    <asp:Label ID="lblStock" runat="server" Text='<%# Eval("Avlb_qty") %>'></asp:Label>
+                                                                    Rupees</strong> || Total Downloads :- <strong>
+                                                                    <asp:Label ID="lblDownloads" runat="server" Text='<%# Eval("Downloads") %>'></asp:Label>
                                                                     &nbsp;</strong></div>
                                                                 <div class="col-lg-12">
                                                                     Description :-
@@ -76,7 +76,8 @@
                                                                         <br />
                                                                         <br />
                                                                         <asp:Button class="btn btn-success" runat="server" Text="Update" CommandName="SelectRow" CommandArgument='<%# Eval("GameId") %>' style="margin-right: 25px;" ID="btnSelect"/>
-                                                                        <asp:Button class="btn btn-danger" runat="server" Text="Delete" ID="btnDelete" CommandName="DeleteRow" CommandArgument='<%# Eval("GameId") %>'/>
+                                                                        <asp:Button class="btn btn-danger" runat="server" Text="Delete" ID="btnDelete" CommandName="DeleteRow" CommandArgument='<%# Eval("GameId") %>' style="margin-right: 25px;"/>
+                                                                        <asp:Button class="btn btn-warning" runat="server" Text="Download" ID="btnDownload" style="margin-right: 25px;"  CommandName="DownloadFile" CommandArgument='<%# Eval("GameId") %>'/>
                                                                     </center>
                                                                 </div>
                                                             </div>
@@ -89,6 +90,7 @@
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                     </Columns>
+                                    <PagerSettings Position="TopAndBottom"></PagerSettings>
                                 </asp:GridView>
                             </div>
                          </div>

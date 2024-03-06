@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Web.Caching;
 using System.Security.Cryptography;
+using System.IO;
 
 namespace GameStop_MS
 {
@@ -31,11 +32,6 @@ namespace GameStop_MS
             {
                 Response.Redirect("~/adminLogin.aspx");
             }
-
-           /* if (!Page.IsPostBack)
-            {
-                fnBindGrid();
-            }*/
         }
 
         public void fnConnect()
@@ -96,9 +92,48 @@ namespace GameStop_MS
                 gameId = Convert.ToInt32(e.CommandArgument);
                 fnDelete();
             }
+
+            if (e.CommandName == "DownloadFile")
+            {
+                gameId = Convert.ToInt32(e.CommandArgument);
+                fnDownload();
+            }
         }
 
+        protected void fnDownload()
+        {
+            try
+            {
+                fnConnect();
+                string qry = "SELECT DownloadPath FROM tblGames WHERE GameId = @gameId";
+                cmd = new SqlCommand(qry, conn);
+                cmd.Parameters.AddWithValue("gameId", gameId);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    string path = dr["DownloadPath"].ToString();
 
+                    if (!string.IsNullOrEmpty(path))
+                    {
+                        Response.ContentType = MimeMapping.GetMimeMapping(path); // Get content type dynamically
+                        Response.AppendHeader("Content-Disposition", "attachment; filename=" + Path.GetFileName(path)); // Set the file name
+                        Response.TransmitFile(path); // Transmit the file
+                        Response.End(); // End the response
+                    }
+                    else
+                    {
+                        lblStatus.Text = "File Not Found";
+                    }
+                }
+                conn.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+                lblStatus.Text = ex.ToString();
+            }
+        }
         protected void fnDelete()
         {
             try

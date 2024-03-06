@@ -13,7 +13,6 @@ namespace GameStop_MS
     public partial class WebForm5 : System.Web.UI.Page
     {
         SqlCommand cmd;
-        SqlDataAdapter sda;
         SqlConnection conn;
         protected void Page_Load(object sender, EventArgs e)
         {

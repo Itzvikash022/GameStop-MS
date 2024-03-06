@@ -2291,6 +2291,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="GameFiles\" />
     <Folder Include="Imgs\" />
     <Folder Include="Uploads\" />
   </ItemGroup>
