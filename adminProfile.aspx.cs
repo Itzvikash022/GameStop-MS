@@ -23,6 +23,7 @@ namespace GameStop_MS
             {
                 id = (int)Session["id"];
             }
+            fn_bind_grid();
         }
         public void fnConnectDb()
         {
@@ -45,6 +46,31 @@ namespace GameStop_MS
             {
                 Response.Write(ex.ToString());
             }
+        }
+
+        protected void fn_bind_grid()
+        {
+            try
+            {
+                string qry = "SELECT * FROM tblAdminProfile";
+                cmd = new SqlCommand(qry,conn);
+                sda = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+                fvAdmin.DataSource = ds;
+                fvAdmin.DataBind();
+                conn.Close();
+
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.ToString());
+            }
+        }
+
+        protected void fvAdmin_PageIndexChanging(object sender, FormViewPageEventArgs e)
+        {
+
         }
     }
 }
