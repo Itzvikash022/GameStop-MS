@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GameStop.Master" AutoEventWireup="true" CodeBehind="adminGameForm.aspx.cs" Inherits="GameStop_MS.WebForm6" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/GameStop.Master" AutoEventWireup="true" CodeBehind="adminGameForm.aspx.cs" Inherits="GameStop_MS.WebForm6" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .auto-style1 {
@@ -134,7 +134,7 @@
                        <div class="col-12">
                            <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
                            <br />
-                           <asp:LinkButton ID="LinkBack" runat="server" PostBackUrl="~/adminGames.aspx">Go Back</asp:LinkButton>
+                           <asp:LinkButton ID="LinkBack" runat="server" PostBackUrl="~/admin/adminGames.aspx">Go Back</asp:LinkButton>
                        </div>
                     </div>
                </div>

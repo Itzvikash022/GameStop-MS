@@ -67,7 +67,7 @@ namespace GameStop_MS
                 if(res>0)
                 {
                     Session["adminID"] = txtAdminID.Text;
-                    Response.Redirect("~/adminGames.aspx");
+                    Response.Redirect("~/admin/adminGames.aspx");
                 }
                 else
                 {

@@ -1,4 +1,4 @@
-﻿    <%@ Page Title="" Language="C#" MasterPageFile="~/GameStop.Master" AutoEventWireup="true" CodeBehind="adminCustomerProfile.aspx.cs" Inherits="GameStop_MS.WebForm7" %>
+﻿    <%@ Page Title="" Language="C#" MasterPageFile="~/admin/GameStop.Master" AutoEventWireup="true" CodeBehind="adminCustomerProfile.aspx.cs" Inherits="GameStop_MS.WebForm7" %>
     <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
         </asp:Content>
     <asp:Content ID="Content2" ContentPlaceHolderID="MasterContentHolder" runat="server">
@@ -110,7 +110,7 @@
                                                 <div class="col-12">
                                                     <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
             <br />
-                                                    <asp:LinkButton ID="LinkBack" runat="server" PostBackUrl="~/adminCustomerList.aspx">Go Back</asp:LinkButton>
+                                                    <asp:LinkButton ID="LinkBack" runat="server" PostBackUrl="~/admin/adminCustomerList.aspx">Go Back</asp:LinkButton>
                                                 </div>
                                             </div>
                                         </ItemTemplate>

@@ -24,7 +24,7 @@ namespace GameStop_MS
                 {
                     if (Session["cid"] == null)
                     {
-                        Response.Redirect("~/adminCustomerList.aspx");
+                        Response.Redirect("~/admin/adminCustomerList.aspx");
                     }
                     else
                     {
@@ -39,7 +39,7 @@ namespace GameStop_MS
             }
             else
             {
-                //Response.Redirect("~/adminLogin.aspx");
+                Response.Redirect("~/admin/adminLogin.aspx");
             }
         }
 
@@ -136,7 +136,7 @@ namespace GameStop_MS
                 int res = cmd.ExecuteNonQuery();
                 if(res>0)
                 {
-                    Response.Redirect("~/adminCustomerList.aspx");
+                    Response.Redirect("~/admin/adminCustomerList.aspx");
                 }
                 else
                 {

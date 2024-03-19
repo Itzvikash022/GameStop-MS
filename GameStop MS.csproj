@@ -2158,72 +2158,87 @@
     <Content Include="FontAwesome\svgs\solid\yen-sign.svg" />
     <Content Include="FontAwesome\svgs\solid\yin-yang.svg" />
     <Content Include="FontAwesome\svgs\solid\z.svg" />
+    <Content Include="user\userGames.aspx" />
     <Content Include="Web.config" />
-    <Content Include="adminGames.aspx" />
-    <Content Include="adminProfile.aspx" />
-    <Content Include="LandingPage.aspx" />
-    <Content Include="adminLogin.aspx" />
-    <Content Include="adminGameForm.aspx" />
-    <Content Include="adminCustomerList.aspx" />
-    <Content Include="adminCustomerProfile.aspx" />
+    <Content Include="admin\adminGames.aspx" />
+    <Content Include="admin\adminProfile.aspx" />
+    <Content Include="admin\LandingPage.aspx" />
+    <Content Include="admin\adminLogin.aspx" />
+    <Content Include="admin\adminGameForm.aspx" />
+    <Content Include="admin\adminCustomerList.aspx" />
+    <Content Include="admin\adminCustomerProfile.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="GameStop.Master.cs">
+    <Compile Include="admin\GameStop.Master.cs">
       <DependentUpon>GameStop.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GameStop.Master.designer.cs">
+    <Compile Include="admin\GameStop.Master.designer.cs">
       <DependentUpon>GameStop.Master</DependentUpon>
     </Compile>
-    <Compile Include="adminGames.aspx.cs">
+    <Compile Include="admin\adminGames.aspx.cs">
       <DependentUpon>adminGames.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="adminGames.aspx.designer.cs">
+    <Compile Include="admin\adminGames.aspx.designer.cs">
       <DependentUpon>adminGames.aspx</DependentUpon>
     </Compile>
-    <Compile Include="adminProfile.aspx.cs">
+    <Compile Include="admin\adminProfile.aspx.cs">
       <DependentUpon>adminProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="adminProfile.aspx.designer.cs">
+    <Compile Include="admin\adminProfile.aspx.designer.cs">
       <DependentUpon>adminProfile.aspx</DependentUpon>
     </Compile>
-    <Compile Include="LandingPage.aspx.cs">
+    <Compile Include="admin\LandingPage.aspx.cs">
       <DependentUpon>LandingPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="LandingPage.aspx.designer.cs">
+    <Compile Include="admin\LandingPage.aspx.designer.cs">
       <DependentUpon>LandingPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="adminLogin.aspx.cs">
+    <Compile Include="admin\adminLogin.aspx.cs">
       <DependentUpon>adminLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="adminLogin.aspx.designer.cs">
+    <Compile Include="admin\adminLogin.aspx.designer.cs">
       <DependentUpon>adminLogin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="adminGameForm.aspx.cs">
+    <Compile Include="admin\adminGameForm.aspx.cs">
       <DependentUpon>adminGameForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="adminGameForm.aspx.designer.cs">
+    <Compile Include="admin\adminGameForm.aspx.designer.cs">
       <DependentUpon>adminGameForm.aspx</DependentUpon>
     </Compile>
-    <Compile Include="adminCustomerList.aspx.cs">
+    <Compile Include="admin\adminCustomerList.aspx.cs">
       <DependentUpon>adminCustomerList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="adminCustomerList.aspx.designer.cs">
+    <Compile Include="admin\adminCustomerList.aspx.designer.cs">
       <DependentUpon>adminCustomerList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="adminCustomerProfile.aspx.cs">
+    <Compile Include="admin\adminCustomerProfile.aspx.cs">
       <DependentUpon>adminCustomerProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="adminCustomerProfile.aspx.designer.cs">
+    <Compile Include="admin\adminCustomerProfile.aspx.designer.cs">
       <DependentUpon>adminCustomerProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\userGameStop.Master.cs">
+      <DependentUpon>userGameStop.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\userGameStop.Master.designer.cs">
+      <DependentUpon>userGameStop.Master</DependentUpon>
+    </Compile>
+    <Compile Include="user\userGames.aspx.cs">
+      <DependentUpon>userGames.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\userGames.aspx.designer.cs">
+      <DependentUpon>userGames.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -2281,7 +2296,8 @@
     <Content Include="FontAwesome\webfonts\fa-v4compatibility.ttf" />
     <Content Include="FontAwesome\webfonts\fa-v4compatibility.woff2" />
     <None Include="packages.config" />
-    <Content Include="GameStop.Master" />
+    <Content Include="admin\GameStop.Master" />
+    <Content Include="user\userGameStop.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -30,7 +30,7 @@ namespace GameStop_MS
             }
             else
             {
-                Response.Redirect("~/adminLogin.aspx");
+                Response.Redirect("~/admin/adminLogin.aspx");
             }
         }
 
@@ -84,7 +84,7 @@ namespace GameStop_MS
             {
                 int gameId = Convert.ToInt32(e.CommandArgument);
                 Session["gameId"] = gameId;
-                Response.Redirect("~/adminGameForm.aspx");
+                Response.Redirect("~/admin/adminGameForm.aspx");
             }
 
             if(e.CommandName == "DeleteRow")
@@ -187,7 +187,7 @@ namespace GameStop_MS
 
         protected void btnInsert_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/adminGameForm.aspx");
+            Response.Redirect("~/admin/adminGameForm.aspx");
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)

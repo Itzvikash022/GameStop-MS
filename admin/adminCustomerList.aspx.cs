@@ -26,7 +26,7 @@ namespace GameStop_MS
             }
             else
             {
-                Response.Redirect("~/adminLogin.aspx");
+                Response.Redirect("~/admin/adminLogin.aspx");
             }
         }
 
@@ -79,7 +79,7 @@ namespace GameStop_MS
             {
                 int cid = Convert.ToInt32(e.CommandArgument);
                 Session["cid"] = cid;
-                Response.Redirect("~/adminCustomerProfile.aspx");
+                Response.Redirect("~/admin/adminCustomerProfile.aspx");
             }
         }
     }

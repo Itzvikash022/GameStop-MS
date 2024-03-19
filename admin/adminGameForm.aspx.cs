@@ -29,7 +29,7 @@ namespace GameStop_MS
             }
             else
             {
-                Response.Redirect("~/adminLogin.aspx");
+                Response.Redirect("~/admin/adminLogin.aspx");
             }
         }
 
@@ -126,13 +126,13 @@ namespace GameStop_MS
             try
             {
                 fnConnectDb();
-                string qry = "UPDATE tblGames SET GameName = @name, Genre = @genre, Description = @desc, Avlb_qty = @qty, Price = @price, Version = @ver, Publisher = @pub, ReleaseDate = @release  WHERE GameId = @game_id";
+                string qry = "UPDATE tblGames SET GameName = @name, Genre = @genre, Description = @desc, Downloads = @download, Price = @price, Version = @ver, Publisher = @pub, ReleaseDate = @release  WHERE GameId = @game_id";
                 cmd = new SqlCommand(qry, conn);
 
                 cmd.Parameters.AddWithValue("name", txtGameName.Text);
                 cmd.Parameters.AddWithValue("genre", ddlGenre.SelectedValue);
                 cmd.Parameters.AddWithValue("desc", txtDescription.Text);
-                cmd.Parameters.AddWithValue("qty", txtDownloads.Text);
+                cmd.Parameters.AddWithValue("download", txtDownloads.Text);
                 cmd.Parameters.AddWithValue("price", txtPrice.Text);
                 cmd.Parameters.AddWithValue("ver", txtVersion.Text);
                 cmd.Parameters.AddWithValue("release", txtReleaseDate.Text);

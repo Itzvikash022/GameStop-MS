@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GameStop.Master" AutoEventWireup="true" CodeBehind="adminLogin.aspx.cs" Inherits="GameStop_MS.WebForm5" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/GameStop.Master" AutoEventWireup="true" CodeBehind="adminLogin.aspx.cs" Inherits="GameStop_MS.WebForm5" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
     .auto-style2 {
@@ -17,7 +17,7 @@
                   <div class="row">
                      <div class="col">
                         <center>
-                           <img width="150px" src="Imgs/admin.png"/>
+                           <img width="150px" src="/Imgs/admin.png"/>
                         </center>
                      </div>
                   </div>
