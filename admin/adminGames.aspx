@@ -27,7 +27,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
-                            <asp:GridView class="table table-striped table-bordered" ID="gdGamesList" runat="server" AutoGenerateColumns="False"  OnRowCommand="gdGamesList_RowCommand" AllowPaging="True" PageSize="7" PagerSettings-Position="TopAndBottom" OnPageIndexChanging="gdGamesList_PageIndexChanging">
+                            <asp:GridView class="table table-striped table-bordered" ID="gdGamesList" runat="server" AutoGenerateColumns="False"  OnRowCommand="gdGamesList_RowCommand" AllowPaging="True" PageSize="4" PagerSettings-Position="TopAndBottom" OnPageIndexChanging="gdGamesList_PageIndexChanging">
                                 <Columns>
                                     <asp:BoundField DataField="GameId" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="GameId" />
                                         <asp:TemplateField HeaderText="Games">

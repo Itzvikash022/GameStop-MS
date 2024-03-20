@@ -71,8 +71,13 @@
                 </nav>
             </header>
         </div>
-        <asp:ContentPlaceHolder ID="MasterContentHolder" runat="server">
-        </asp:ContentPlaceHolder>
+        <section class="hero-section">
+            <div class="hero-overlay">
+                <asp:ContentPlaceHolder ID="MasterContentHolder" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </section>
+        
     </form>
 </body>
 </html>

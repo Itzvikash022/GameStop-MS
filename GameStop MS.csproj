@@ -2157,6 +2157,7 @@
     <Content Include="FontAwesome\svgs\solid\yen-sign.svg" />
     <Content Include="FontAwesome\svgs\solid\yin-yang.svg" />
     <Content Include="FontAwesome\svgs\solid\z.svg" />
+    <Content Include="Imgs\img.jpg" />
     <Content Include="user\userGames.aspx" />
     <Content Include="Web.config" />
     <Content Include="admin\adminGames.aspx" />
@@ -2308,7 +2309,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="clg_project1\css\" />
     <Folder Include="GameFiles\" />
-    <Folder Include="Imgs\" />
     <Folder Include="Uploads\" />
   </ItemGroup>
   <PropertyGroup>
