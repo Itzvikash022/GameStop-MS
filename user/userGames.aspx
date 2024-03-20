@@ -65,14 +65,14 @@
                         <div class="col">
                             <asp:DataList ID="dlGames" runat="server" GridLines="Both" RepeatColumns="4" RepeatLayout="Flow">
                                 <ItemTemplate>
-                                    <a href="#">
+                                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# "userViewGames.aspx?GameID=" + Eval("GameID") %>'>
                                         <div class="game-box">
                                             <asp:Image ID="GameCover" runat="server" ImageUrl='<%# Eval("ImageUrl") %>' />
                                             <div class="label-gname">
                                                 <asp:Label ID="lblGameName" runat="server" Text='<%# Eval("GameName") %>'></asp:Label>
                                             </div>
                                         </div>
-                                    </a>
+                                    </asp:HyperLink>
                                 </ItemTemplate>
                             </asp:DataList>
                         </div>

@@ -67,10 +67,5 @@ namespace GameStop_MS
                 Response.Write(ex.ToString());
             }
         }
-
-        protected void fvAdmin_PageIndexChanging(object sender, FormViewPageEventArgs e)
-        {
-
-        }
     }
 }

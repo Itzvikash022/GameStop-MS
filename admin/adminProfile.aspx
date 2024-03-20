@@ -20,7 +20,7 @@
                                 <br />
                                 <h3><strong>Admin Details</strong></h3>
                                 <br />
-                                <asp:FormView ID="fvAdmin" runat="server"  class="table table-striped table-bordered" OnPageIndexChanging="fvAdmin_PageIndexChanging" >
+                                <asp:FormView ID="fvAdmin" runat="server"  class="table table-striped table-bordered" >
                                     <ItemTemplate>
                                         <div class="row">
                                             <div class="col-md-2">

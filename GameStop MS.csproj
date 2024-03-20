@@ -2157,8 +2157,10 @@
     <Content Include="FontAwesome\svgs\solid\yen-sign.svg" />
     <Content Include="FontAwesome\svgs\solid\yin-yang.svg" />
     <Content Include="FontAwesome\svgs\solid\z.svg" />
+    <Content Include="Homepage.aspx" />
     <Content Include="Imgs\img.jpg" />
     <Content Include="user\userGames.aspx" />
+    <Content Include="user\userViewGames.aspx" />
     <Content Include="Web.config" />
     <Content Include="admin\adminGames.aspx" />
     <Content Include="admin\adminProfile.aspx" />
@@ -2169,6 +2171,13 @@
     <Content Include="admin\adminCustomerProfile.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Homepage.aspx.cs">
+      <DependentUpon>Homepage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Homepage.aspx.designer.cs">
+      <DependentUpon>Homepage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="admin\GameStop.Master.cs">
       <DependentUpon>GameStop.Master</DependentUpon>
@@ -2239,6 +2248,13 @@
     </Compile>
     <Compile Include="user\userGames.aspx.designer.cs">
       <DependentUpon>userGames.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\userViewGames.aspx.cs">
+      <DependentUpon>userViewGames.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\userViewGames.aspx.designer.cs">
+      <DependentUpon>userViewGames.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
