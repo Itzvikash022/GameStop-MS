@@ -55,14 +55,13 @@
                                             <div class="col-md-4">
                                                 Contact No.
                                                 <div class="form-group">
-                                                    <asp:TextBox ID="txtPhone" runat="server" CssClass="form-control" ToolTip="Admin Contact Number" ReadOnly="True" Text='<%# Eval("adminPhone") %>'></asp:TextBox>
-                                                    <asp:RegularExpressionValidator ID="rev_contact" runat="server" ErrorMessage=" Number must be 10 digits**" ControlToValidate="txtPhone" CssClass="auto-style1"></asp:RegularExpressionValidator>
+                                                    <asp:TextBox ID="txtPhone" runat="server" CssClass="form-control" ToolTip="Admin Contact Number" Text='<%# Eval("adminPhone") %>' TextMode="Number"></asp:TextBox>
+                                                    <asp:RegularExpressionValidator ID="rev_contact" runat="server" ErrorMessage=" Number must be 10 digits**" ControlToValidate="txtPhone" CssClass="auto-style1" ValidationGroup="gpValidate"></asp:RegularExpressionValidator>
                                                 </div>
                                             </div>
                                              <div class="col-md-3">
                                                  Date Of Birth<div class="form-group">
-                                                     <asp:TextBox ID="txtDOB" runat="server" CssClass="form-control" ToolTip="Admin Date of Birth"  Text='<%# Eval("adminDOB") %>'  TextMode="Date"></asp:TextBox>
-                                                     <asp:RequiredFieldValidator ID="rfv_dob" runat="server" ErrorMessage="Select date**" ControlToValidate="txtDOB" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                     <asp:TextBox ID="txtDOB" runat="server" CssClass="form-control" ToolTip="Admin Date of Birth" ReadOnly="true" Text='<%# Eval("adminDOB") %>'></asp:TextBox>
                                                  </div>
                                              </div>
                                         </div>
@@ -70,12 +69,7 @@
                                             <div class="col-md-4">
                                                 Gender
                                                 <div class="form-group">
-                                                    <asp:RadioButtonList ID="rbl_gender" runat="server" RepeatDirection="Horizontal">
-                                                        <asp:ListItem>Male</asp:ListItem>
-                                                        <asp:ListItem>Female</asp:ListItem>
-                                                        <asp:ListItem>Others</asp:ListItem>
-                                                    </asp:RadioButtonList>
-                                                    <asp:RequiredFieldValidator ID="rfv_gender" runat="server" ErrorMessage="Gender required**" CssClass="auto-style1" ControlToValidate="rbl_gender"></asp:RequiredFieldValidator>
+                                                    <asp:TextBox ID="txtGender" runat="server" CssClass="form-control" placeholder="State" ReadOnly="true" Text='<%# Eval("adminGender") %>' ToolTip="Gender"></asp:TextBox>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -102,14 +96,14 @@
                                         </div>
                                         <div class="row">
                                             <div class="d-grid gap-2 col-4 mx-auto">
-                                                <asp:Button ID="btnUpdate" runat="server" class="btn btn-lg btn-block btn-warning"  Text="Update" ValidationGroup="gpValidate"  />
+                                                <asp:Button ID="btnUpdate" runat="server" class="btn btn-lg btn-block btn-warning"  Text="Update" ValidationGroup="gpValidate" OnClick="btnUpdate_Click"  />
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-12">
                                                 <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
         <br />
-                                                <asp:LinkButton ID="LinkBack" runat="server" PostBackUrl="~/admin/adminCustomerList.aspx">Go Back</asp:LinkButton>
+                                                <asp:LinkButton ID="LinkBack" runat="server" PostBackUrl="~/admin/adminGames.aspx">Go Back</asp:LinkButton>
                                             </div>
                                         </div>
                                     </ItemTemplate>

@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="Bootstrap\css\bootstrap.min.css" />
     <Content Include="Bootstrap\css\style.css" />
+    <Content Include="Bootstrap\css\style_home.css" />
     <Content Include="Bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="Bootstrap\js\jquery-3.3.1.slim.min.js" />
     <Content Include="Bootstrap\js\popper.min.js" />
@@ -2158,6 +2159,9 @@
     <Content Include="FontAwesome\svgs\solid\yin-yang.svg" />
     <Content Include="FontAwesome\svgs\solid\z.svg" />
     <Content Include="Homepage.aspx" />
+    <Content Include="Imgs\anime.png" />
+    <Content Include="Imgs\Controller_Image.png" />
+    <Content Include="Imgs\game.jpg" />
     <Content Include="Imgs\img.jpg" />
     <Content Include="user\userGames.aspx" />
     <Content Include="user\userViewGames.aspx" />
