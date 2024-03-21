@@ -2161,6 +2161,7 @@
     <Content Include="Imgs\img.jpg" />
     <Content Include="user\userGames.aspx" />
     <Content Include="user\userViewGames.aspx" />
+    <Content Include="user\cartItemsDisplay.aspx" />
     <Content Include="Web.config" />
     <Content Include="admin\adminGames.aspx" />
     <Content Include="admin\adminProfile.aspx" />
@@ -2255,6 +2256,13 @@
     </Compile>
     <Compile Include="user\userViewGames.aspx.designer.cs">
       <DependentUpon>userViewGames.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\cartItemsDisplay.aspx.cs">
+      <DependentUpon>cartItemsDisplay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\cartItemsDisplay.aspx.designer.cs">
+      <DependentUpon>cartItemsDisplay.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

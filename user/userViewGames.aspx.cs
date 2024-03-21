@@ -18,6 +18,10 @@ namespace GameStop_MS.user
         SqlCommand cmd;
         SqlDataAdapter sda;
         public static int gameId;
+        public static int price;
+        public static string gameName;
+        public static string genre;
+        public static string image;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -122,7 +126,68 @@ namespace GameStop_MS.user
         protected void btnCart_Click(object sender, EventArgs e)
         {
             Session["GameIdCart"] = gameId;
-            Response.Redirect("#");
+            fn_fetch_game();
+            fn_cart();
+            //Response.Redirect("cartItemsDisplay.aspx");
+        }
+
+        public void fn_fetch_game()
+        {
+            fnConnect();
+            string qry = "SELECT * FROM tblGames WHERE gameId = @id";
+            cmd = new SqlCommand(qry, conn);
+            cmd.Parameters.AddWithValue("id", gameId);
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            try
+            {
+                if (dr.Read())
+                {
+                    gameName = dr["GameName"].ToString();
+                    price = (int)dr["Price"];
+                    image = dr["ImageUrl"].ToString();
+                    genre = dr["Genre"].ToString();
+                }
+                else
+                {
+                    Response.Write("Bhai Session kaha call kar diya aap ne (hehehehe) hai");
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.ToString());
+            }
+        }
+        public void fn_cart()
+        {
+            try
+            {
+                fnConnect();
+                string qry = "INSERT INTO tblGamesCart(GameName, Price, ImageUrl , CustomerEmail , Genre) VALUES(@name, @price, @image , @email , @genre)";
+                cmd = new SqlCommand(qry, conn);
+
+                cmd.Parameters.AddWithValue("name", gameName);
+                cmd.Parameters.AddWithValue("price", price);
+                cmd.Parameters.AddWithValue("image", image);
+                cmd.Parameters.AddWithValue("genre", genre);
+                cmd.Parameters.AddWithValue("email", "vy12@gmail.com");
+
+                int res = cmd.ExecuteNonQuery();
+
+                if (res > 0)
+                {
+                    lblStatus.Text = "Cart Successfull.";
+                }
+                else
+                {
+                    lblStatus.Text = "Failed to Cart Game.";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.ToString());
+            }
         }
 
         protected void btnDownload_Click(object sender, EventArgs e)
