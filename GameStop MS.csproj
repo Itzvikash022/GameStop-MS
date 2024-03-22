@@ -2170,6 +2170,7 @@
     <Content Include="user\userSales.aspx" />
     <Content Include="user\userOwned.aspx" />
     <Content Include="user\userRegistration.aspx" />
+    <Content Include="user\userProfile.aspx" />
     <Content Include="Web.config" />
     <Content Include="admin\adminGames.aspx" />
     <Content Include="admin\adminProfile.aspx" />
@@ -2299,6 +2300,13 @@
     </Compile>
     <Compile Include="user\userRegistration.aspx.designer.cs">
       <DependentUpon>userRegistration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\userProfile.aspx.cs">
+      <DependentUpon>userProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\userProfile.aspx.designer.cs">
+      <DependentUpon>userProfile.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

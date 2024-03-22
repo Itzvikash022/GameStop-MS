@@ -40,6 +40,7 @@
                                      </asp:GridView>
                                  </div>
                                  <br />
+                                 <asp:LinkButton ID="LinkBack" runat="server" PostBackUrl="userViewGames.aspx">Go Back</asp:LinkButton>
                                  <asp:Label ID="lblStatus" runat="server"></asp:Label>
                              </div>
                          </div>

@@ -71,19 +71,8 @@
             <div class="content2">
                 <h2>Gaming Zone</h2>
                 <p>If you want to spend your time in games. <br /> Visit Our Store, Buy, Download and Enjoy.</p>
-
-                <asp:Button ID="btn1" CssClass="btn game" runat="server" Text="Buy Now" />
+        </div>
             </div>
-           
-        </div>
-        <div class="links">
-            <img src="images/facebook.svg" />
-            <img src="images/youtube.svg" />
-            <img src="images/linkedin.svg" />
-            <img src="images/instagram.svg" />
-            <img src="images/youtube.svg" />
-        </div>
-  
     </div>
         </div>
     </section>

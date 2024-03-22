@@ -200,5 +200,11 @@ namespace GameStop_MS
             gdGamesList.PageIndex = e.NewPageIndex;
             fnBindGrid();
         }
+
+        protected void btnLgout_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("adminLogin.aspx");
+        }
     }
 }

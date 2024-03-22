@@ -119,5 +119,11 @@ namespace GameStop_MS.user
                 Response.Redirect("~/user/userSales.aspx");
             }
         }
+
+        protected void gdGamesList_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gdGamesList.PageIndex = e.NewPageIndex;
+            fnBindDataList();
+        }
     }
 }

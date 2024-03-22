@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace GameStop_MS
+namespace GameStop_MS.user
 {
-    public partial class WebForm2 : System.Web.UI.Page
+    public partial class WebForm7 : System.Web.UI.Page
     {
         SqlCommand cmd;
         SqlDataAdapter sda;
@@ -18,16 +18,16 @@ namespace GameStop_MS
         public static int id = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["adminId"] != null)
+            if (Session["userEmail"] != null)
             {
-                if(!IsPostBack)
+                if (!IsPostBack)
                 {
                     fnBindFormView();
                 }
             }
             else
             {
-                Response.Redirect("adminLogin.aspx");
+                Response.Redirect("userLogin.aspx");
             }
         }
         public void fnConnectDb()
@@ -44,7 +44,7 @@ namespace GameStop_MS
                 }
                 else
                 {
-                    lblStatus.Text = "Database Connection failed";
+                    lblStatus.Text = "Connection Failed";
                 }
             }
             catch (Exception ex)
@@ -58,8 +58,9 @@ namespace GameStop_MS
             fnConnectDb();
             try
             {
-                string qry = "SELECT * FROM tblAdminProfile";
-                cmd = new SqlCommand(qry,conn);
+                string qry = "SELECT * FROM tblCustomers WHERE CustomerEmail = @eml";
+                cmd = new SqlCommand(qry, conn);
+                cmd.Parameters.AddWithValue("eml", Session["userEmail"]);
                 sda = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 sda.Fill(ds);
@@ -89,7 +90,7 @@ namespace GameStop_MS
                 TextBox txtAddress = (TextBox)fvAdmin.FindControl("txtAddress");
 
                 fnConnectDb();
-                string qry = "UPDATE tblAdminProfile SET adminFName = @fname, adminLName = @lname, adminEmail = @email, adminAddress = @add, adminCity = @city, adminPhone = @phone, adminState = @state WHERE adminID = @id";
+                string qry = "UPDATE tblCustomers SET CustomerFName = @fname, CustomerLName = @lname, CustomerEmail = @email, CustomerAddress = @add, CustomerCity = @city, CustomerPhone = @phone, CustomerState = @state WHERE CustomerEmail = @eml";
                 cmd = new SqlCommand(qry, conn);
                 cmd.Parameters.AddWithValue("fname", txtFirstName.Text);
                 cmd.Parameters.AddWithValue("lname", txtLastName.Text);
@@ -98,15 +99,15 @@ namespace GameStop_MS
                 cmd.Parameters.AddWithValue("phone", txtPhone.Text);
                 cmd.Parameters.AddWithValue("state", txtState.Text);
                 cmd.Parameters.AddWithValue("city", txtCity.Text);
-                cmd.Parameters.AddWithValue("id", Session["adminId"]);
+                cmd.Parameters.AddWithValue("eml", Session["userEmail"]);
                 int res = cmd.ExecuteNonQuery();
                 if (res > 0)
                 {
-                    lblStatus.Text = "Admin Details Updated";
+                    lblStatus.Text = "User Details Updated";
                 }
                 else
                 {
-                    lblStatus.Text = "Admin Update Failed";
+                    lblStatus.Text = "User Update Failed";
                 }
             }
             catch (Exception ex)

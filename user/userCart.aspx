@@ -19,7 +19,7 @@
              <div class="card-body">
                  <div class="row">
                      <div class="col">
-                         <asp:GridView class="table table-striped table-bordered" ID="gdGamesList" runat="server" AutoGenerateColumns="False" OnRowCommand="gdGamesList_RowCommand"  >
+                         <asp:GridView class="table table-striped table-bordered" ID="gdGamesList" runat="server" AutoGenerateColumns="False" OnRowCommand="gdGamesList_RowCommand" AllowPaging="True" OnPageIndexChanging="gdGamesList_PageIndexChanging" PageSize="7"  >
                              <Columns>
                                  <asp:BoundField DataField="GameId" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="GameId" />
                                      <asp:TemplateField HeaderText="Games">
@@ -64,6 +64,7 @@
                                  </Columns>
                                  <PagerSettings Position="TopAndBottom"></PagerSettings>
                              </asp:GridView>
+                             <asp:LinkButton ID="LinkBack" runat="server" PostBackUrl="userViewGames.aspx">Go Back</asp:LinkButton>
                          </div>
                       </div>
                    </div>

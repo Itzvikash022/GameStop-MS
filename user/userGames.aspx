@@ -63,8 +63,10 @@
                             <h3 class="permanent-marker-regular">All Available Games</h3>
                             <asp:TextBox ID="txtSearch" runat="server" placeholder="Search Games" style="border-radius:8px"></asp:TextBox>
                             <asp:Button ID="btnSearch" CssClass="btn btn-info" runat="server" Text="Search" OnClick="btnSearch_Click" />
+                            <asp:Button ID="btnLogout" runat="server" class="btn btn-danger col-1" style="margin-right: 15px; float: right;" Text="Logout" OnClick="btnLogout_Click"/>
                         </center>
                         <div class="col">
+                            
                             <asp:DataList ID="dlGames" runat="server" GridLines="Both" RepeatColumns="4" RepeatLayout="Flow">
                                 <ItemTemplate>
                                     <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# "userViewGames.aspx?GameID=" + Eval("GameID") %>'>

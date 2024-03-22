@@ -17,6 +17,7 @@
                     <h4>GameList</h4>
                 </center>
                 <div style="margin-top: 10px;">
+                    <asp:Button ID="btnLgout" runat="server" class="btn btn-danger col-1" style="margin-right: 15px; float: right;" Text="Logout" OnClick="btnLgout_Click"/>
                     <asp:Button ID="btnInsert" runat="server" class="btn btn-primary col-2" style="margin-right: 22px; float: right;" Text="Add New Game" OnClick="btnInsert_Click" />
                     <asp:Button ID="btnSearch" runat="server" class="btn btn-secondary" style="margin-left: 22px; padding: 2px 10px; float: left;" Text="Search" OnClick="btnSearch_Click" />
 

@@ -99,5 +99,11 @@ namespace GameStop_MS.user
         {
             fnSearch();
         }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("userLogin.aspx");
+        }
     }
 }

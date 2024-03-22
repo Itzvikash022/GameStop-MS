@@ -47,12 +47,14 @@
                                         <a class="nav-link mx-lg-2" href="userCart.aspx">Cart</a>
                                     </li>
                                     <li class="nav-item">
+                                        <a class="nav-link mx-lg-2" href="userProfile.aspx">My Profile</a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a class="nav-link mx-lg-2" href="userOwned.aspx">My Games</a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
-                        <a href="userLogin.aspx" class="login-button">Login</a>
                         <button
                             class="navbar-toggler pe-0"
                             type="button"
