@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user/userGameStop.Master" AutoEventWireup="true" CodeBehind="cartItemsDisplay.aspx.cs" Inherits="GameStop_MS.user.WebForm3" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user/userGameStop.Master" AutoEventWireup="true" CodeBehind="userCart.aspx.cs" Inherits="GameStop_MS.user.WebForm3" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
 </asp:Content>
@@ -15,8 +15,6 @@
              <div style="margin-top: 10px;">
                 
                  <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
-                
-
              </div>
              <div class="card-body">
                  <div class="row">
@@ -50,8 +48,8 @@
                                                                  <center>
                                                                      <br />
                                                                      <br />
-                                                                     <asp:Button class="btn btn-success" runat="server" Text="Buy Now"  style="margin-right: 25px;" ID="btnSelect"/>
-                                                                     <asp:Button class="btn btn-danger" runat="server" Text="Remove" ID="btnDelete" CommandName="DeleteRow" CommandArgument='<%# Eval("cartId") %>' style="margin-right: 25px;" />
+                                                                     <asp:Button class="btn btn-success" runat="server" Text="Buy Now"  style="margin-right: 25px;" CommandName="SelectRow" CommandArgument='<%# Eval("GameId") %>' ID="btnBuy"/>
+                                                                     <asp:Button class="btn btn-danger" runat="server" Text="Remove" ID="btnremove" CommandName="DeleteRow" CommandArgument='<%# Eval("cartId") %>' style="margin-right: 25px;" />
                                                                  </center>
                                                              </div>
                                                          </div>

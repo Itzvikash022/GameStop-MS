@@ -18,7 +18,7 @@
             <header>
                 <nav class="navbar navbar-expand-lg fixed-top">
                     <div class="container-fluid">
-                        <a class="navbar-brand me-auto" href="#">GameStop</a>
+                        <a class="navbar-brand me-auto" href="../Homepage.aspx">GameStop</a>
 
                         <div
                             class="offcanvas offcanvas-end"

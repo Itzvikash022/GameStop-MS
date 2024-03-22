@@ -76,7 +76,7 @@
                                     <h3>Game Details :- <asp:Label ID="Label1" runat="server" Text='<%# Eval("GameName") %>' CssClass="details"></asp:Label></h3>
                                     <table class="data-table">
                                         <tr>
-                                            <td rowspan="8" class="card-image"> <asp:Image ID="img" ImageUrl='<%# Eval("ImageUrl") %>' runat="server" /></td>
+                                            <td rowspan="9" class="card-image"> <asp:Image ID="img" ImageUrl='<%# Eval("ImageUrl") %>' runat="server" /></td>
                                         </tr>
                                         <div class="details">
                                         <tr>
@@ -104,6 +104,10 @@
                                             <td><asp:Label ID="lblVersion" runat="server" Text='<%# Eval("Version") %>' CssClass="details"></asp:Label></td>
                                         </tr>
                                         <tr>
+                                             <td><strong>Downloads:</strong></td>
+                                             <td><asp:Label ID="lblDownloads" runat="server" Text='<%# Eval("Downloads") %>' CssClass="details"></asp:Label></td>
+                                        </tr>
+                                        <tr>
                                             <td><strong>Description:</strong></td>
                                             <td><strong>
                                                 <asp:Label ID="lblDescription" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
@@ -112,15 +116,12 @@
                                         </div>
                                     </table>
                                     <div class="row" style="margin-top:12px">
-                                       <div class="d-grid gap-2 col-3 mx-auto">
+                                       <div class="d-grid gap-2 col-4 mx-auto">
                                           <asp:Button ID="btnBuy" class="btn btn-lg btn-block btn-success" runat="server" Text="Buy Now" OnClick="btnBuy_Click"/>
                                        </div>
-                                       <div class="d-grid gap-2 col-3 mx-auto">
+                                       <div class="d-grid gap-2 col-4 mx-auto">
                                           <asp:Button ID="btnCart" class="btn btn-lg btn-block btn-warning" runat="server" Text="Add To Cart" OnClick="btnCart_Click"/>
                                        </div>
-                                        <div class="d-grid gap-2 col-3 mx-auto">
-                                         <asp:Button ID="btnDownload" class="btn btn-lg btn-block btn-danger" runat="server" Text="Download Game" OnClick="btnDownload_Click"/>
-                                      </div>
                                     </div>
                                 </ItemTemplate>
                             </asp:DataList>

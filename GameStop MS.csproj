@@ -2165,7 +2165,11 @@
     <Content Include="Imgs\img.jpg" />
     <Content Include="user\userGames.aspx" />
     <Content Include="user\userViewGames.aspx" />
-    <Content Include="user\cartItemsDisplay.aspx" />
+    <Content Include="user\userCart.aspx" />
+    <Content Include="user\userLogin.aspx" />
+    <Content Include="user\userSales.aspx" />
+    <Content Include="user\userOwned.aspx" />
+    <Content Include="user\userRegistration.aspx" />
     <Content Include="Web.config" />
     <Content Include="admin\adminGames.aspx" />
     <Content Include="admin\adminProfile.aspx" />
@@ -2261,12 +2265,40 @@
     <Compile Include="user\userViewGames.aspx.designer.cs">
       <DependentUpon>userViewGames.aspx</DependentUpon>
     </Compile>
-    <Compile Include="user\cartItemsDisplay.aspx.cs">
-      <DependentUpon>cartItemsDisplay.aspx</DependentUpon>
+    <Compile Include="user\userCart.aspx.cs">
+      <DependentUpon>userCart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="user\cartItemsDisplay.aspx.designer.cs">
-      <DependentUpon>cartItemsDisplay.aspx</DependentUpon>
+    <Compile Include="user\userCart.aspx.designer.cs">
+      <DependentUpon>userCart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\userLogin.aspx.cs">
+      <DependentUpon>userLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\userLogin.aspx.designer.cs">
+      <DependentUpon>userLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\userSales.aspx.cs">
+      <DependentUpon>userSales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\userSales.aspx.designer.cs">
+      <DependentUpon>userSales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\userOwned.aspx.cs">
+      <DependentUpon>userOwned.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\userOwned.aspx.designer.cs">
+      <DependentUpon>userOwned.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\userRegistration.aspx.cs">
+      <DependentUpon>userRegistration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\userRegistration.aspx.designer.cs">
+      <DependentUpon>userRegistration.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

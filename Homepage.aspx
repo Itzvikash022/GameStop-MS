@@ -40,18 +40,15 @@
                                     <a class="nav-link mx-lg-2" href="#">About</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link mx-lg-2" href="#">Contact</a>
+                                    <a class="nav-link mx-lg-2" href="/user/userGames.aspx">Games</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link mx-lg-2" href="adminCustomerList.aspx">Customer List</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link mx-lg-2" href="adminGames.aspx">Game List</a>
+                                    <a class="nav-link mx-lg-2" href="/admin/adminLogin.aspx">Admin Login</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <a href="adminLogin.aspx" class="login-button">Login</a>
+                    <a href="user/userLogin.aspx" class="login-button">Login</a>
                     <button
                         class="navbar-toggler pe-0"
                         type="button"

@@ -24,17 +24,29 @@ namespace GameStop_MS.user
         public static string image;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["userEmail"] != null)
             {
-                if (Request.QueryString["GameID"] != null)
+                if (!IsPostBack)
                 {
-                    gameId = Convert.ToInt32(Request.QueryString["GameID"]);
-                    fnBindDataList();
+                    if (Request.QueryString["GameID"] != null)
+                    {
+                        gameId = Convert.ToInt32(Request.QueryString["GameID"]);
+                        fnBindDataList();
+                    }
+                    else if (Session["GameID"] != null)
+                    {
+                        gameId = (int) Session["GameID"];
+                        fnBindDataList();
+                    }
+                    else
+                    {
+                        Response.Redirect("userGames.aspx");
+                    }
                 }
-                else
-                {
-                    Response.Redirect("userGames.aspx");
-                }
+            }
+            else
+            {
+                Response.Redirect("userLogin.aspx");
             }
         }
 
@@ -82,56 +94,20 @@ namespace GameStop_MS.user
             }
         }
 
-        protected void fnDownload()
-        {
-            try
-            {
-                fnConnect();
-                string qry = "SELECT DownloadPath FROM tblGames WHERE GameId = @gameId";
-                cmd = new SqlCommand(qry, conn);
-                cmd.Parameters.AddWithValue("gameId", gameId);
-                SqlDataReader dr = cmd.ExecuteReader();
-                if (dr.Read())
-                {
-                    string path = dr["DownloadPath"].ToString();
-
-                    if (!string.IsNullOrEmpty(path))
-                    {
-                        Response.ContentType = MimeMapping.GetMimeMapping(path); // Get content type dynamically
-                        Response.AppendHeader("Content-Disposition", "attachment; filename=" + Path.GetFileName(path)); // Set the file name
-                        Response.TransmitFile(path); // Transmit the file
-                        Response.End(); // End the response
-                    }
-                    else
-                    {
-                        lblStatus.Text = "File Not Found";
-                    }
-                }
-                conn.Close();
-
-
-            }
-            catch (Exception ex)
-            {
-                lblStatus.Text = ex.ToString();
-            }
-        }
-
         protected void btnBuy_Click(object sender, EventArgs e)
         {
             Session["GameIdBuy"] = gameId;
-            Response.Redirect("#");
+            Response.Redirect("userSales.aspx");
         }
 
         protected void btnCart_Click(object sender, EventArgs e)
         {
             Session["GameIdCart"] = gameId;
-            fn_fetch_game();
-            fn_cart();
-            //Response.Redirect("cartItemsDisplay.aspx");
+            fnFetchGames();
+            fnCart();
         }
 
-        public void fn_fetch_game()
+        public void fnFetchGames()
         {
             fnConnect();
             string qry = "SELECT * FROM tblGames WHERE gameId = @id";
@@ -150,49 +126,45 @@ namespace GameStop_MS.user
                 }
                 else
                 {
-                    Response.Write("Bhai Session kaha call kar diya aap ne (hehehehe) hai");
+                    lblStatus.Text = "No Data Found";
                 }
             }
             catch (Exception ex)
             {
-                Response.Write(ex.ToString());
+                lblStatus.Text = ex.ToString();
             }
         }
-        public void fn_cart()
+        public void fnCart()
         {
             try
             {
                 fnConnect();
-                string qry = "INSERT INTO tblGamesCart(GameName, Price, ImageUrl , CustomerEmail , Genre) VALUES(@name, @price, @image , @email , @genre)";
+                string qry = "INSERT INTO tblGamesCart(GameName, Price, ImageUrl , CustomerEmail , Genre, GameId) VALUES(@name, @price, @image , @email , @genre, @gid)";
                 cmd = new SqlCommand(qry, conn);
 
                 cmd.Parameters.AddWithValue("name", gameName);
                 cmd.Parameters.AddWithValue("price", price);
                 cmd.Parameters.AddWithValue("image", image);
                 cmd.Parameters.AddWithValue("genre", genre);
-                cmd.Parameters.AddWithValue("email", "vy12@gmail.com");
+                cmd.Parameters.AddWithValue("gid", gameId);
+                cmd.Parameters.AddWithValue("email", Session["userEmail"]);
 
                 int res = cmd.ExecuteNonQuery();
 
                 if (res > 0)
                 {
-                    lblStatus.Text = "Cart Successfull.";
+                    Response.Redirect("userCart.aspx");
                 }
                 else
                 {
-                    lblStatus.Text = "Failed to Cart Game.";
+                    lblStatus.Text = "Failed to Add to Cart :(";
                 }
 
             }
             catch (Exception ex)
             {
-                Response.Write(ex.ToString());
+                lblStatus.Text = ex.ToString();
             }
-        }
-
-        protected void btnDownload_Click(object sender, EventArgs e)
-        {
-            fnDownload();
         }
     }
 }

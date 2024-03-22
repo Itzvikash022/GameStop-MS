@@ -61,6 +61,8 @@
                     <div class="row">
                         <center style="margin-top: 10px">
                             <h3 class="permanent-marker-regular">All Available Games</h3>
+                            <asp:TextBox ID="txtSearch" runat="server" placeholder="Search Games" style="border-radius:8px"></asp:TextBox>
+                            <asp:Button ID="btnSearch" CssClass="btn btn-info" runat="server" Text="Search" OnClick="btnSearch_Click" />
                         </center>
                         <div class="col">
                             <asp:DataList ID="dlGames" runat="server" GridLines="Both" RepeatColumns="4" RepeatLayout="Flow">
@@ -75,6 +77,7 @@
                                     </asp:HyperLink>
                                 </ItemTemplate>
                             </asp:DataList>
+                            <asp:Label ID="lblStatus" runat="server"></asp:Label>
                         </div>
                     </div>
                 </div>

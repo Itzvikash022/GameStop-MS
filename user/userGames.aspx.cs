@@ -17,9 +17,16 @@ namespace GameStop_MS.user
         SqlDataAdapter sda;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (Session["userEmail"] != null)
             {
-                fnBindDataList();
+                if (!IsPostBack)
+                {
+                    fnBindDataList();
+                }
+            }
+            else
+            {
+                Response.Redirect("userLogin.aspx");
             }
         }
         
@@ -33,19 +40,41 @@ namespace GameStop_MS.user
                 if(conn.State != ConnectionState.Open)
                 {
                     conn.Open();
-                    Response.Write("Connected");
+                    //lblStatus.Text = "Database Connected";
                 }
                 else
                 {
-                    Response.Write("Connection failed");
+                    lblStatus.Text = "Database Connection Failed";
                 }
             }
             catch (Exception ex)
             {
-                Response.Write(ex.ToString());
+                lblStatus.Text = ex.ToString();
             }
         }
 
+        protected void fnSearch()
+        {
+            try
+            {
+                fnConnect();
+                string game = txtSearch.Text.Trim();
+                string qry = "SELECT * FROM tblGames WHERE GameName LIKE '%' + @game + '%'";
+                cmd = new SqlCommand(qry, conn);
+                cmd.Parameters.AddWithValue("game", game);
+                sda = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+                dlGames.DataSource = ds;
+                dlGames.DataBind();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                lblStatus.Text = ex.ToString();
+
+            }
+        }
         protected void fnBindDataList()
         {
             fnConnect();
@@ -62,8 +91,13 @@ namespace GameStop_MS.user
             }
             catch (Exception ex)
             {
-                Response.Write(ex.ToString());
+                lblStatus.Text = ex.ToString();
             }
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            fnSearch();
         }
     }
 }
